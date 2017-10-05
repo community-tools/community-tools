@@ -1,14 +1,14 @@
-# Events Tools
+# Community Tools
 
-Events tools is an open source app for ambitious event organizers.
+Community Tools is an open source app for ambitious community organizers.
 
-The objective of Event Tools is to provide a turnkey solution for organizing & running events, including presentations/cfp, speakers, scheduling, ticketing, website, venue, signage, recording/videos, etc.
+The objective of Community Tools is to provide a turnkey solution for organizing & running communities and, including presentations/cfp, speakers, scheduling, ticketing, website, venue, signage, recording/videos, etc.
 
 The app is intended to scale from meetups to large conferences, and ideally can provide a year-round solution for open source organization and community organizers.
 
 ## Installation
 
-Events tools is written in the Elixir language and relies on the Phoenix framework. To start your Phoenix server:
+Community tools is written in the Elixir language and relies on the Phoenix framework. To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
   * Create and migrate your database with `mix ecto.create && mix ecto.migrate`
@@ -21,11 +21,11 @@ Ready to run in production? Please [check our deployment guides](http://www.phoe
 
 ## Learn more
 
-  * Official website: http://www.events.tools/
+  * Official website: http://www.community.tools/
   * Guides: TBA
   * Docs: TBA
   * Mailing list: TBA
-  * Source: https://github.com/apps-team/events-tools
+  * Source: https://github.com/apps-team/community-tools
 
 ## License
 
