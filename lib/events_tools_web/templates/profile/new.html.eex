@@ -1,0 +1,11 @@
+<div class="admin edit-block">
+
+<h2>New Profile</h2>
+
+
+<%= render "form.html", changeset: @changeset, profile: @profile, status_all: @status_all, current_user: @current_user,
+                        action: profile_path(@conn, :create) %>
+
+<span><%= link "Back", to: profile_path(@conn, :index) %></span>
+
+</div>

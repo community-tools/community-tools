@@ -1,0 +1,9 @@
+<div class="admin row">
+  <div class="admin row-cell title"><a href="<%= event_path(@conn, :show, @event.id) %>"><%= @event.name %></a></div>
+  <div class="admin row-cell desc"><%= @event.description %></span></div>
+  <div class="admin row-cell icon"><%= @event.icon %></span></div>
+  <div class="admin row-cell color" style="background-color:#<%= @event.color %>"><%= @event.color %></span></div>
+  <div class="admin row-cell tag"><%= @event.tag %></span></div>
+  <div class="admin row-cell icon-edit"><%= link "Edit", to: event_path(@conn, :edit, @event) %></div>
+  <div class="admin row-cell icon-delete"><%= link "Delete", to: event_path(@conn, :delete, @event), method: :delete %></div>
+</div>

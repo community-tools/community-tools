@@ -1,0 +1,9 @@
+<div class="admin edit-block">
+
+<h2>Edit Post</h2>
+
+<%= render "form.html", changeset: @changeset, post: @post, events_all: @events_all,
+                        action: post_path(@conn, :update, @post) %>
+
+
+</div>

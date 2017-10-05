@@ -1,0 +1,3 @@
+<h2 class="title-page discreet">Presentation</h2>
+
+<%= render "card-full.html", presentation: @presentation, conn: @conn, current_user: @current_user %>

@@ -1,0 +1,84 @@
+<!-- Intro - About -->
+<div class="landing-intro image-full sponsorship-options">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">Sponsorship Options</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text sponsorship-options white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps is made possible thanks to the  support of our generous sponsors.</p>
+    <!-- >We are currently offering an early bird discounts. Our 15% discount was extended and ended on Mar 31. We've extended the 10% discount thru Apr 15, and the 5% discount will run from Apr 15 to Jun 15 -- use coupon code 'Early'. We have a special 5% discount code for returning 2015 partners as well that's valid until Jun 15 (please email us with any questions). -->
+    <p> Please contact us via e-mail at <a href="mailto:sponorships@opencamps.org">sponorships@opencamps.org</a> or phone at 212 203 8052 if your organization is interested in becoming a sponsor.
+    <!-- We will help you tailor a partnership package to give you the best possible exposure for your budget. -->
+  </div>
+</div>
+
+
+
+<%= for sponsorship_option <- @sponsorship_options do %>
+<div class="sponsorship-option">
+  <div class="sponsorship-option-inner">
+
+    <div class="heading">
+      <h4><%= sponsorship_option.name %></h4>
+      <p><%= sponsorship_option.summary %>
+     <div class="price">$<%= sponsorship_option.price %></div>
+    </div>
+
+    <div class="benefit expo">
+      <div class="label">Expo</div>
+      <div class="details"><%= sponsorship_option.expo %></div>
+    </div>
+
+    <div class="benefit camps">
+      <div class="label">Camps</div>
+      <div class="details"><%= sponsorship_option.camps %></div>
+    </div>
+
+    <div class="benefit website">
+      <div class="label">Website</div>
+      <div class="details"><%= sponsorship_option.website %></div>
+    </div>
+
+    <div class="benefit program">
+      <div class="label">Program</div>
+      <div class="details"><%= sponsorship_option.program %></div>
+    </div>
+
+    <div class="benefit signage">
+      <div class="label">Signage</div>
+      <div class="details"><%= sponsorship_option.signage %></div>
+    </div>
+
+    <div class="benefit social">
+      <div class="label">Social</div>
+      <div class="details"><%= sponsorship_option.social %></div>
+    </div>
+
+    <div class="benefit swag">
+      <div class="label">Swag</div>
+      <div class="details"><%= sponsorship_option.swag %></div>
+    </div>
+
+    <div class="benefit recruiting">
+      <div class="label">Recruiting</div>
+      <div class="details"><%= sponsorship_option.recruiting %></div>
+    </div>
+
+
+
+    <div class="benefit stock">
+      <div class="label">Stock</div>
+      <div class="details"><%= sponsorship_option.stock %></div>
+    </div>
+
+
+  </div>
+  </div>
+<% end %>

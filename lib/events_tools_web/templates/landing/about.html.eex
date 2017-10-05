@@ -1,0 +1,240 @@
+<!-- Intro - About -->
+<div class="landing-intro image-full about">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">About</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text about white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps provides a mission-driven arena for open source community members, contributors and leaders to collaborate.</p>
+    <p>Our events are open to all to ensure there's no barriers between the world’s best open source developers, technologies & organizations.</p>
+  </div>
+</div>
+
+
+
+
+<!-- Program -->
+<div class="landing-row cards-3 text-center program gray">
+  <div class="landing-row">
+    <div class="landing-row-inner">
+      <div class="text">
+        <div class="text-inner">
+          <h3 class="landing-row-header">Conference Program</h3>
+          <h4 class="landing-row-header">An Open Source Conference for All</h4>
+            <p>Open Camps' program includes a wide array of events that span the key elements of open source.</p>
+            <p>Our largest events are Camps, which are conferences that run under the Open Camps umbrella. These include events focused on key open source technologies, industry best practices, and community considerations. In conjunction with our Camps, we also runs contribution sprints, trainings, and a talent fair & sponsors expo.</p>
+        </div>
+
+        <div class="cards medium">
+
+          <div class="card medium camps">
+            <div class="card-inner">
+              <div class="card-image">
+                <h5>Camps</h5>
+              </div>
+              <div class="card-text">
+                <p>Under the Open Camps umbrella, we run a mix of conferences (aka '<em>Camps</em>') on key open source technologies.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card medium sprints">
+            <div class="card-inner">
+              <div class="card-image">
+                <h5>Contribution Sprints</h5>
+              </div>
+              <div class="card-text">
+                <p>Many of our Camps include code & contribution sprints to foster more open source contributions & contributors.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="card medium trainings">
+            <div class="card-inner">
+              <div class="card-image">
+                <h5>Trainings</h5>
+              </div>
+              <div class="card-text">
+                <p>Several of our Camps also include free trainings to help attendees acquire & advance their open source skills.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+  <!-- Initiatives -->
+  <div class="landing-row image-full text-center initiatives">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h3 class="landing-row-header">Special Initiatives</h3>
+            <h4 class="landing-row-header">Humanitarian & Social Efforts</h4>
+            <p>In addition to fostering open source innovation and collaboration, Open Camps also includes multiple initiatives with a social & humanitarian focus.</p>
+
+            <div class="tiles events">
+              <div class="tile event diversity">
+                <div class="inner">
+                  <div class="icon"><img src="<%= static_path(@conn, "/images/icons/icon-diversity.png") %>"></div>
+                  <h5>Diversity & Inclusion Camp</h5>
+                  <p>Striving for greater diversity in open source communities</p>
+                  <%= if @conn.host =~ "local.opencamps.org" do %><a href="http://diversity.camp" class="button" target="_blank">Find out More</a><%= end %>
+                </div>
+              </div>
+
+              <div class="tile event nextgen">
+                <div class="inner">
+                  <div class="icon"><img src="<%= static_path(@conn, "/images/icons/icon-nextgen.png") %>"></div>
+                  <h5>Next Gen Camp</h5>
+                  <p class="description">An open source conference for young developers</p>
+                  <%= if @conn.host =~ "local.opencamps.org" do %><a href="http://nextgen.camp" class="button" target="_blank">Find out More</a><%= end %>
+                </div>
+              </div>
+              <div class="tile event women">
+                <div class="inner">
+                  <div class="icon"><img src="<%= static_path(@conn, "/images/icons/icon-women.png") %>"></div>
+                  <h5>Women in Open Source</h5>
+                  <p>Working to improve gender balance in open source</p>
+                  <%= if @conn.host =~ "local.opencamps.org" do %><a href="http://womeinopensource.camp" class="button" target="_blank">Find out More</a><%= end %>
+                </div>
+              </div>
+              <div class="tile event hackathon">
+                <div class="inner">
+                  <div class="icon"><img src="<%= static_path(@conn, "/images/icons/icon-h4h.png") %>"></div>
+                  <h5>Hack for Humanity</h5>
+                  <p>An impactful mission-driven open source hackathon</p>
+                  <%= if @conn.host =~ "local.opencamps.org" do %><a href="http://hackforhumantiy.nyc" class="button" target="_blank">Find out More</a><%= end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Mission -->
+  <div class="landing-row image-full text-split text-left mission">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h3 class="landing-row-header">Our Mission</h3>
+            <h4 class="landing-row-header">Mobilizing Open Source for Good</h4>
+              <p>Open Camps’ mission is to foster greater contribution to, collaboration among and adoption of open source technologies.</p>
+              <p>We are a mission-driven open source conference run on a not-for-profit basis, by a team of over 200+ volunteers from across many open source communities. Our volunteer team and fundraising efforts help to keep Open Camps free to attend and <em>‘open to all’</em>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Demographics -->
+  <div class="landing-row image-full text-split text-right demographics">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h3 class="landing-row-header">Demographics</h3>
+            <h4 class="landing-row-header">A Diverse Mix of Participants</h4>
+
+            <p>Open Camps attendees & speakers are primarily developers & engineers, but also include a diverse mix of open source technology professionals.</p>
+
+            <p>Please See our <a href="/sponsorship_options">Sponsorship Options page</a> to get a better feel for the demographics of our <a href="/sponsors">sponsors</a>, and our our <a href="/presentations">Presentations page</a> page to get a better sense our speakers mix.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Background -->
+  <div class="landing-row image-full text-split text-left impact">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h3 class="landing-row-header">Impact</h3>
+            <h4 class="landing-row-header">Fostering Open Source Collaboration</h4>
+              <p>Open Camps has had a positive impact on open source by helping cultivate great collaboration and contribution among open source community members, contributors, projects and organizations.</p>
+              <p>We've also help introduce many technologists and organizations to open source, including providing free trainings and workshops to over 3,000 attendees so far.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Background -->
+  <div class="landing-row image-full text-split text-right background">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h3 class="landing-row-header">Background</h3>
+            <h4 class="landing-row-header">A Collective Community Effort</h4>
+            <p>Over the last 5 years we’ve achieved our initial goals making Open Camps one of the largest developer conferences in NYC, and then one of the world’s largest open source conferences.</p>
+            <p>In 2016, Open Camps hosted 6,000+ attendees across 35+ conferences that featured 400+ sessions on dozens of open source technologies. We are aiming for a similar or slightly larger size for 2017.</p>
+
+            <p>Our rationale for these goals, was never about the size of the event or running a big conference. Rather, our focus was on establish Open Camps as a platform that was large and accessible enough to be a stage for all of open source and to be impactful enough to meaningfully help foster open source contribution, collaboration & growth.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- Roadmap -->
+  <div class="landing-row image-full text-split text-left roadmap">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h3 class="landing-row-header">Roadmap</h3>
+            <h4 class="landing-row-header">The Best is Yet to Come</h4>
+            <p>We started Open Camps to pay it forward and help create the sort of world we want for future generations.</p>
+            <p>For 2017, our focus is on formalizing and implementing best practices. However, once that’s achieved, we believe that Open Camps has incredible potential to grow (likely to 10,000+ attendees) and have a massively positive impact on open source in the years and decades ahead. Thanks to each of our volunteers, all our sponsors (especially the UN), and the many source community members who’ve helped us reach this point.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+<div class="presentation card medium">
+  <div class="card-inner">
+
+    <h3>
+<%= link @presentation.title, to: presentation_path(@conn, :show, @presentation) %></h3>
+
+    <div class="summary row"><%= @presentation.summary %></div>
+
+    <div class="presenters row">
+      <div class="list">
+        <%= for profile <- @presentation.presenters do %>
+        <%= render CommunityToolsWeb.ProfileView, "card-small.html", profile: profile, conn: @conn %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="presenters row">
+      <div class="label">Events</div>
+      <div class="list">
+        <%= for event <- @presentation.events do %>
+         <%= link event.name, to: event_path(@conn, :show, event) %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+</div>

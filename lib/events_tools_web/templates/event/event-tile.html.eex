@@ -1,0 +1,21 @@
+<!-- <a href="<%= event_path(@conn, :show, @event.id) %>"> -->
+<%= if @conn.host =~ "test.opencamps.org" or @conn.host =~ "dev.opencamps.org" or @conn.host =~ "local.opencamps.org" do %>
+  <a href="/2017/events/<%= @event.slug %>">
+<% end %>
+<div class="event tile <%= @event.name %>" style="background-color: #<%= @event.color %>">
+  <div class="inner">
+    <div class="icon">
+      <div class="icon-inner">
+        <img src="<%= static_path(@conn, "/images/icons/") %><%= @event.icon.file_name %>">
+      </div>
+    </div>
+    <div class="name"><%= @event.name %></div>
+    <!-- <div class="description"> <%= @event.description %> </div> -->
+  </div>
+</div>
+<%= if @conn.host === "dev.opencamps.org" do %>
+  </a>
+<% end %>
+
+
+<!-- </a> -->

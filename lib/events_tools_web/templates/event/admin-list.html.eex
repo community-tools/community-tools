@@ -1,0 +1,18 @@
+<div class="page admin">
+  <div class="content">
+
+
+    <h2>Manage Events</h2>
+
+
+    <%= link to: event_path(@conn, :create), class: "btn white-text blue-grey darken-2" do %><i class="material-icons">Add and Event</i><% end %>
+
+
+    <div class="list-group">
+      <%= for e <- @events do %>
+        <%= render "admin-event-row.html", event: e, conn: @conn %>
+      <% end %>
+    </div>
+
+  </div>
+</div>

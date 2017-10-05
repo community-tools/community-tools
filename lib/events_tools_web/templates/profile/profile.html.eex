@@ -1,0 +1,13 @@
+<div class="profile-page">
+<br><br><br><br>
+<h2 class="signin">Profile</h2>
+<%= if @conn.assigns[:current_user] do %>
+  <p>Signed in as <%= @current_user.email %></p>
+  </br>
+  <%= button "Sign Out", to: accounts_path(@conn, :signout), method: :post, class: "buttn" %>
+  <br>
+<% else %>
+ <a href="/sign-in">Sign In</a>
+<% end %>
+
+</div>

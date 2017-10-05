@@ -1,0 +1,9 @@
+<div class="card medium post">
+  <div class="card-inner">
+    <h3 class="title"><%= link @post.title, to: post_path(@conn, :show, @post), class: "" %>
+    <h4 class="subtitle"><%= @post.subtitle %></h4>
+    <div class="date"><%= @post.date %></div>
+    <div class="teaser"><%= @post.teaser %></div>
+    <div class="link more"><%= link "Read More", to: post_path(@conn, :show, @post), class: "" %></div>
+  </div>
+</div>

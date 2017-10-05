@@ -1,0 +1,7 @@
+<div class="admin edit-block">
+
+<h1>Create an Event</h1>
+<%= render "form.html", changeset: @changeset, event: @event, organizers_all: @organizers_all,
+                        action: event_path(@conn, :create) %>
+
+</div>

@@ -1,0 +1,13 @@
+<h2>Hall</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @hall.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: hall_path(@conn, :edit, @hall) %></span>
+<span><%= link "Back", to: hall_path(@conn, :index) %></span>

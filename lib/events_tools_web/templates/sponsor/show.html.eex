@@ -1,0 +1,22 @@
+<h2 class="title-page discreet">Sponsor</h2>
+
+  <div class="sponsor">
+    <div class="sponsor-inner">
+      <div class="logo">
+
+      </div>
+      <div class="name">
+
+      </div>
+      <div class="name">
+        <%= @sponsor.sponsorship_option.name %>
+      </div>
+
+      <div class="name">
+        <%= @sponsor.organization.name %>
+      </div>
+    </div>
+  </div>
+
+<span><%= link "Edit", to: sponsor_path(@conn, :edit, @sponsor) %></span>
+<span><%= link "Back", to: sponsor_path(@conn, :index) %></span>

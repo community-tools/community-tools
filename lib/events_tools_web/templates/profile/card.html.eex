@@ -1,0 +1,30 @@
+<div class="card small profile">
+  <div class="inner-profile">
+
+    <div class="profile-details">
+      <div class="inner-profile-details">
+        <div class="name"><h3><a href="/profiles/<%= @profile.id %>"><%= @profile.name_first %> <%= @profile.name_last %></a></h3></div>
+        <div class="prof-details">
+          <%= @profile.role %>
+          <%= if @profile.organization do %>(<%= @profile.organization %>)<%= end %>
+        </div>
+        <div class="location"><%= @profile.state %>, <%= @profile.country %></div>
+        <%= if @profile.bio do %><div class="bio">View Bio</div><%= end %>
+        <div class="icons">
+          <%= if @profile.website do %><div class="icon website"><a href="<%= @profile.website %>" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.github do %><div class="icon github"><a href="<%= @profile.github %>" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.linkedin do %><div class="icon linkedin"><a href="<%= @profile.linkedin %>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.twitter do %><div class="icon twitter"><a href="<%= @profile.twitter %>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.facebook do %><div class="icon facebook"><a href="<%= @profile.facebook %>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div><%= end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="profile-avatar">
+      <div class="inner-profile-avatar">
+          <a href="/profiles/<%= @profile.id %>"><img src="<%= static_path(@conn, "/images/profiles/") %><%= @profile.avatar %>"></a>
+      </div>
+    </div>
+
+  </div>
+</div>

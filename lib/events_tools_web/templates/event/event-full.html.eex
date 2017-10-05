@@ -1,0 +1,117 @@
+<!-- <a href="<%= event_path(@conn, :show, @event.id) %>"> -->
+<div class="event-page">
+
+  <div class="event-header <%= @event.name %>" style="background-color: #<%= @event.color %>">
+
+    <div class="icons">
+      <div class="icon github"><a href="<%= @event.github %>" target="_blank"><i class="fa fa-github fa-3" aria-hidden="true"></i></a></div>
+      <div class="icon twitter"><a href="<%= @event.twitter %>" target="_blank"><i class="fa fa-twitter fa-3" aria-hidden="true"></i></a></div>
+      <div class="icon facebook"><a href="<%= @event.facebook %>" target="_blank"><i class="fa fa-facebook fa-3" aria-hidden="true"></i></a></div>
+     </div>
+
+    <div class="inner">
+      <div class="icon">
+        <div class="icon-inner">
+          <img src="<%= static_path(@conn, "/images/icons/") %><%= @event.icon.file_name %>">
+        </div>
+      </div>
+      <div class="name"><h3><%= @event.name %></h3></div>
+      <div class="date"><h4>Nov 2017<%= # @event.date %></h4></div>
+
+    </div>
+  </div>
+
+  <div class="event-row details">
+    <div class="event-row-inner white">
+      <div class="description"><%= text_to_html(@event.description) %></div>
+    </div>
+  </div>
+
+  <div class="event-row schedule">
+    <div class="event-row-inner">
+      <div class="title-row" style="color: #<%= @event.color %>">
+        <h4>Schedule</h4>
+      </div>
+      <div class="intro"><%= @event.intro_schedule %></div>
+      <div class="list">
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT - Sponsors -->
+  <div class="event-row white sponsors">
+      <div class="event-row-inner">
+        <div class="title-row" style="color: #<%= @event.color %>"><h4>Sponsors</h4></div>
+        <div class="intro"><%= @event.intro_sponsors %></div>
+        <div class="list">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT - Presentations -->
+  <div class="event-row presentations">
+    <div class="event-row-inner">
+      <div class="title-row" style="color: #<%= @event.color %>"><h4>Presentations</h4></div>
+      <div class="list">
+        <%= for presentation <- @event.presentations do %>
+          <%= Phoenix.View.render(CommunityToolsWeb.PresentationView, "card-small.html", presentation: presentation, conn: @conn ) %>
+        <% end %>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- EVENT - News -->
+  <div class="event-row news">
+      <div class="event-row-inner">
+        <div class="title-row" style="color: #<%= @event.color %>"><h4>News</h4></div>
+        <div class="intro"><%= @event.intro_news %></div>
+        <div class="list">
+          <%= for post <- @event.posts do %>
+          <%= Phoenix.View.render(CommunityToolsWeb.PostView, "card-small.html", post: post, conn: @conn ) %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <!-- EVENT - Location -->
+  <div class="event-row location white">
+    <div class="event-row-inner">
+      <div class="title-row" style="color: #<%= @event.color %>"><h4>Location</h4></div>
+      <div class="venue">
+        <div class="intro"><%= raw(@event.intro_venue) %></div>
+       </div>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24180.196360482943!2d-74.00143329070241!3d40.75048637696526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25901a4127ca9%3A0xbecdcc9081d6cfdb!2sMidtown%2C+New+York%2C+NY!5e0!3m2!1sen!2sus!4v1499378843302" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      </div>
+  </div>
+
+  <!-- EVENT - Team -->
+  <div class="event-row team">
+    <div class="event-row-inner">
+      <div class="title-row" style="color: #<%= @event.color %>"><h4>Team</h4></div>
+      <div class="intro"><%= raw(@event.intro_team) %></div>
+      <div class="list">
+        <%= for profile <- @event.organizers do %>
+          <%= render CommunityToolsWeb.ProfileView, "card-small.html", profile: profile, conn: @conn %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <%= if @conn.assigns[:current_user] do %>
+  <div class="links crud icons">
+    <div class="link crud icon"><%= link fa_icon("fa-2x edit"), to: event_path(@conn, :edit, @event), class: "icon" %></div>
+    <div class="link crud icon"><%= link fa_icon("trash"), to: event_path(@conn, :delete, @event), method: :delete, data: [confirm: "Are you sure?"], class: "icon" %></div>
+  </div>
+  <%= end %>
+
+
+  <div class="event-footer" style="background-color: #<%= @event.color %>">
+    Creative Commons
+  </div>
+
+
+</div>

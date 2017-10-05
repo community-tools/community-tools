@@ -1,0 +1,77 @@
+<!-- Intro - Sponsors -->
+<div class="landing-intro image-full sponsors">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">Sponsors</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text sponsors white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps is made possible thanks to the  support of our generous sponsors.</p>
+    <!-- >We are currently offering an early bird discounts. Our 15% discount was extended and ended on Mar 31. We've extended the 10% discount thru Apr 15, and the 5% discount will run from Apr 15 to Jun 15 -- use coupon code 'Early'. We have a special 5% discount code for returning 2015 partners as well that's valid until Jun 15 (please email us with any questions). -->
+    <p> Please contact us via e-mail at <a href="mailto:sponorships@opencamps.org">sponorships@opencamps.org</a> or phone at 212 203 8052 if your organization is interested in becoming a sponsor.</p>
+    <!-- We will help you tailor a partnership package to give you the best possible exposure for your budget. -->
+  </div>
+</div>
+
+
+<div class="homepage">
+
+<!-- Sponsors -->
+<div class="landing-row white sponsors">
+  <div class="landing-row-inner">
+
+    <div class="sponsors-links">
+      <div class="cnfc"><a class="founding" href="https://www.cncf.io" target="_blank"><img alt="Cloud Native Computing Foundations" src="<%= static_path(@conn, "/images/logos/logo_cncf.svg") %>"></a></div>
+      <div class="c1"><a class="founding" href="https://www.capitalone.com/" target="_blank"><img alt="Capital One" src="<%= static_path(@conn, "/images/logos/logo_capital-one.svg") %>"></a></div>
+      <div class="sponsors-row">
+        <div class="sponsor">
+          <div class="sponsor-inner">
+            <a href="https://saucelabs.com/" target="_blank" class="sauce-labs"><img src="<%= static_path(@conn, "/images/logos/logo_sauce-labs.webp") %>"></a>
+          </div>
+        </div>
+        <div class="sponsor">
+          <div class="sponsor-inner">
+            <a href="http://www.averityteam.com/" target="_blank" class="averity"><img src="<%= static_path(@conn, "/images/logos/logo_averity.png") %>"></a>
+          </div>
+        </div>
+      </div>
+      <div class="sponsors-row">
+        <div class="sponsor">
+          <div class="sponsor-inner">
+            <a href="https://www.honeybadger.io" target="_blank" class="honey-badger"><img src="<%= static_path(@conn, "/images/logos/logo_honey-badger.png") %>"></a>
+          </div>
+        </div>
+        <div class="sponsor">
+          <div class="sponsor-inner">
+            <a href="http://plataformatec.com.br" target="_blank" class="plataformatec"><img src="<%= static_path(@conn, "/images/logos/logo_plataformatec.svg") %>"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <a href="/images/prospectus.pdf" target"_blank" class="button large">Become a Sponsor</a>
+
+  </div>
+</div>
+</div>
+
+
+
+<%= if @conn.host =~ "local.opencamps.org" or @conn.host =~ "dev.opencamps.org" or @conn.host =~ "test.opencamps.org"   do %>
+<%= for sponsor <- @sponsors do %>
+  <a href="<%= sponsor_path(@conn, :show, sponsor) %>">"
+    <div><%= sponsor.name %></div>
+    <div><%= sponsor.name %></div>
+  </a>
+  <span><%= link "Edit", to: sponsor_path(@conn, :edit, sponsor), class: "btn btn-default btn-xs" %></span>
+  <span><%= link "Delete", to: sponsor_path(@conn, :delete, sponsor), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+<% end %>

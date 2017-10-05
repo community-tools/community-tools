@@ -1,0 +1,162 @@
+<div class="homepage">
+
+
+  <!-- Intro -->
+  <div class="landing-intro image-full homepage">
+    <div class="landing-intro-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h2 class="homepage-intro">One of the World's Largest Open Source Conferences</h2>
+
+            <!--   Promo Section   -->
+            <div class="stats">
+              <div class="stat-block">
+                <div class="center promo">
+                  <h4 class="stat">8,000+</h4>
+                  <h5 class="stat">Attendees</h5>
+                </div>
+              </div>
+
+              <div class="stat-block">
+                <div class="center promo">
+                  <h4 class="stat">500+</h4>
+                  <h5 class="stat">Presentations</h5>
+                </div>
+              </div>
+
+              <div class="stat-block">
+                <div class="center promo">
+                  <h4 class="stat">40+</h4>
+                  <h5 class="stat">Events</h5>
+                </div>
+              </div>
+              <h4 class="dates light">Nov 17 to 21, 2017 in Midtown NYC</h4>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+
+  <!-- Broadcast -->
+  <div class="landing-row broadcast">
+    <div class="landing-row-inner">
+    <p>Our next batch of tickets for Open Camps 2017 will be released early next week.<br>
+    Follow us at <a href="twitter.com/opencamps" target="_blank">@opencamps</a> for updates.</p>
+    <div class="broadcast-buttons">
+       <a href="/2017/cfp" class="button-cfp">Propose a Presentation</a>
+       <%= if @conn.host =~ "local.opencamps.org" do %>
+         <a href="/2017/sponsorship_options" class="button-cfp">Become a Sponsor</a>
+       <%= else %>
+         <a href="/files/prospectus.pdf" target="_blank" class="button-cfp">Become a Sponsor</a>
+       <%= end %>
+    </div>
+  </div>
+
+  <!-- Events -->
+  <div class="landing-row events">
+    <div class="landing-row-inner">
+
+        <%= for e <- @events do %>
+          <%= render CommunityToolsWeb.EventView, "event-tile.html", event: e, conn: @conn %>
+        <% end %>
+
+      <div class="event extra">
+        <div class="inner">
+          <p>Stay tuned for exciting camp announcements!</p>
+        </div>
+       </div>
+    </div>
+  </div>
+
+  <!-- Sponsors -->
+  <div class="landing-row white sponsors">
+    <div class="landing-row-inner">
+      <div class="image parallax">
+        <img src="<%= static_path(@conn, "/images/photos/parallax-sponsors.jpg") %>">
+          <div class="header-inner">
+            <h3 class="landing-row-header">Sponsors</h3>
+          </div>
+      </div>
+      <p class="lead">Open Camps is made possible thanks to the support of our generous sponsors.</p>
+      <br>
+
+      <div class="sponsors-links">
+        <div class="cnfc"><a class="founding" href="https://www.cncf.io" target="_blank"><img alt="Cloud Native Computing Foundation" src="<%= static_path(@conn, "/images/logos/logo_cncf.svg") %>"></a></div>
+        <div class="c1"><a class="founding" href="https://www.capitalone.com/" target="_blank"><img alt="Capital One" src="<%= static_path(@conn, "/images/logos/logo_capital-one.svg") %>"></a></div>
+        <div class="sponsors-row">
+          <div class="sponsor">
+            <div class="sponsor-inner">
+              <a href="https://saucelabs.com/" target="_blank" class="sauce-labs"><img src="<%= static_path(@conn, "/images/logos/logo_sauce-labs.webp") %>"></a>
+            </div>
+          </div>
+          <div class="sponsor">
+            <div class="sponsor-inner">
+              <a href="http://www.averityteam.com/" target="_blank" class="averity"><img src="<%= static_path(@conn, "/images/logos/logo_averity.png") %>"></a>
+            </div>
+          </div>
+        </div>
+        <div class="sponsors-row">
+          <div class="sponsor">
+            <div class="sponsor-inner">
+              <a href="https://www.honeybadger.io" target="_blank" class="honey-badger"><img src="<%= static_path(@conn, "/images/logos/logo_honey-badger.png") %>"></a>
+            </div>
+          </div>
+          <div class="sponsor">
+            <div class="sponsor-inner">
+              <a href="http://plataformatec.com.br" target="_blank" class="plataformatec"><img src="<%= static_path(@conn, "/images/logos/logo_plataformatec.svg") %>"></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <%= if @conn.host =~ "local.opencamps.org" do %>
+        <a href="/2017/sponsorship_options" class="button-cfp">Become a Sponsor</a>
+      <%= else %>
+        <a href="/files/prospectus.pdf" target="_blank" class="button-cfp">Become a Sponsor</a>
+      <%= end %>
+
+    </div>
+  </div>
+
+
+  <!-- Speakers -->
+  <div class="landing-row speakers">
+    <div class="landing-row-inner">
+      <div class="image parallax">
+        <img src="<%= static_path(@conn, "/images/photos/parallax-montewidenus.jpg") %>">
+          <div class="header-inner">
+            <h3 class="landing-row-header">Speakers</h3>
+          </div>
+      </div>
+      <p class="">Open Camps features a dynamic mix of speakers presenting on today's most vital open source technologies and best practices.</p>
+      <!-- <a href="/presentations" class="button large">Sumbit a Presentation</a> -->
+    </div>
+  </div>
+
+
+  <!-- Location -->
+
+
+  <div class="landing-row white location">
+    <div class="landing-row-inner">
+      <div class="image parallax">
+        <img src="<%= static_path(@conn, "/images/photos/parallax-manhattan1.jpg") %>">
+        <div class="header-inner">
+          <h3 class="landing-row-header">Location</h3>
+        </div>
+      </div>
+      <h4 class="light">Nov 17 to 21, 2017 in Midtown NYC</h4>
+      <p>Stay tuned for exciting announcements about our venue and schedule</p>
+    </div>
+  </div>
+
+
+</div>

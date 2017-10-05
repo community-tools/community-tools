@@ -1,0 +1,27 @@
+<h2>Rooms</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for room <- @rooms do %>
+    <tr>
+      <td><%= link room.name, to: room_path(@conn, :show, room), class: "" %></td>
+
+      <td class="text-right">
+        <div class="links crud icons row">
+          <div class="link crud icon"><%= link fa_icon("pencil"), to: room_path(@conn, :edit, room), class: "icon" %></div>
+          <div class="link crud icon"><%= link fa_icon("trash"), to: room_path(@conn, :delete, room), method: :delete, data: [confirm: "Are you sure?"], class: "icon" %></div>
+        </div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link fa_icon("plus"), to: room_path(@conn, :new) %></span>

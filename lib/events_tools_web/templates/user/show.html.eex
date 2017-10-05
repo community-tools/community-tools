@@ -1,0 +1,28 @@
+<h2 class="title-page discreet">Show User</h2>
+
+
+<div class="user">
+  <div class="inner-user">
+
+        <div class="email"><h3><%= @user.email %></h3></div>
+
+
+       <%= for role <- @user.roles do %>
+         <span class="label label-default"><%= role.name %></span>
+       <% end %>
+       <%= for status <- @user.status do %>
+         <span class="label label-default"><%= status.title %></span>
+       <% end %>
+
+       <div class="password">PROFILE: <%= @user.profile %></div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+<span><%= link "Edit Username & Password", to: user_path(@conn, :edit, @user) %></span>

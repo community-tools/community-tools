@@ -1,0 +1,20 @@
+<%= if length(@presentation.owners) == 0 do %>
+    <%= render CommunityToolsWeb.AccountsView, "access-denied.html", conn: @conn %>
+<% else %>
+
+  <%= for owner <- @presentation.owners do %>
+    <%= if owner.id == @current_user.id do %>
+
+      <h2>Edit Presentation</h2>
+
+      <%= render "form.html", changeset: @changeset, presentation: @presentation, profiles_all: @profiles_all, events_all: @events_all, current_user: @current_user,
+                               action: presentation_path(@conn, :update, @presentation) %>
+
+    <%= else %>
+
+      <%= render CommunityToolsWeb.AccountsView, "access-denied.html", conn: @conn %>
+
+    <% end %>
+  <% end %>
+
+<% end %>

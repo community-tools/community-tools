@@ -1,0 +1,49 @@
+<div class="presentation card full">
+  <div class="card-inner">
+
+    <h3><%= @presentation.title %></h3>
+
+    <div class="summary row"><%= @presentation.summary %></div>
+
+    <div class="presenters row">
+      <div class="label">Presenters</div>
+      <div class="list">
+        <%= for profile <- @presentation.presenters do %>
+        <%= render CommunityToolsWeb.ProfileView, "card-small.html", profile: profile, conn: @conn %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="presenters row">
+      <div class="label">Events</div>
+      <div class="list">
+        <%= for event <- @presentation.events do %>
+         <%= link event.name, to: event_path(@conn, :show, event) %>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="slides row">
+      <div class="label">Slides</div>
+      <%= @presentation.slides %>
+    </div>
+
+    <!--
+    <div class="video">
+      <div class="label">Video</div>
+      <iframe src="https://www.youtube.com/embed/cKeJJldQRgI" frameborder="0" allowfullscreen></iframe>
+    </div>
+    -->
+   <%= @current_user.id %>
+    <%= for owner <- @presentation.owners do %>
+      <%= if owner.id == @current_user.id do %>
+      <div class="links crud icons row">
+        <div class="link crud icon"><%= link fa_icon("pencil"), to: presentation_path(@conn, :edit, @presentation), class: "icon" %></div>
+        <div class="link crud icon"><%= link fa_icon("trash"), to: presentation_path(@conn, :delete, @presentation), method: :delete, data: [confirm: "Are you sure?"], class: "icon" %></div>
+      </div>
+      <%= end %>
+    <% end %>
+
+
+
+</div>

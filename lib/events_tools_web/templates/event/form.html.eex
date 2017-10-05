@@ -1,0 +1,158 @@
+<%= form_for @changeset, @action, [multipart: true], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name, "Name" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :tagline, "Tagline" %>
+    <%= text_input f, :tagline, class: "form-control" %>
+    <%= error_tag f, :tagline %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :teaser, "Teaser" %>
+    <%= textarea f, :teaser, class: "form-control" %>
+    <%= error_tag f, :teaser %>
+  </div>
+
+  <div class="form-group">s
+    <%= label f, :description, "Description" %>
+    <%= textarea f, :description, class: "form-control", rows: 5 %>
+    <%= error_tag f, :description %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :date, "Date & Time" %>
+    <%= text_input f, :date, class: "form-control", type: "datetime-local" %>
+    <%= error_tag f, :date %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :icon, "Icon" %>
+    <%= file_input f, :icon, class: "form-control" %>
+    <%= error_tag f, :icon %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_news, "News" %>
+    <%= textarea f, :intro_news, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_news %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_location, "Location" %>
+    <%= textarea f, :intro_location, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_location %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_venue, "Venue" %>
+    <%= textarea f, :intro_venue, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_venue %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_speakers, "Speakers" %>
+    <%= textarea f, :intro_speakers, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_speakers %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_schedule, "Schedule" %>
+    <%= textarea f, :intro_schedule, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_schedule %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_sponsors, "Sponsors" %>
+    <%= textarea f, :intro_sponsors, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_sponsors %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :intro_team, "Team" %>
+    <%= textarea f, :intro_team, class: "form-control", rows: 5 %>
+    <%= error_tag f, :intro_team %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :background, "Background" %>
+    <%= textarea f, :background, class: "form-control", rows: 5 %>
+    <%= error_tag f, :background %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :website, "Website" %>
+      <%= text_input f, :website, class: "form-control" %>
+      <%= error_tag f, :website %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :email, "E-mail" %>
+      <%= text_input f, :email, class: "form-control" %>
+      <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :twitter, "Twitter" %>
+      <%= text_input f, :twitter, class: "form-control" %>
+      <%= error_tag f, :twitter %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :facebook, "Facebook" %>
+      <%= text_input f, :facebook, class: "form-control" %>
+      <%= error_tag f, :facebook %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :github, "Github" %>
+      <%= text_input f, :github, class: "form-control" %>
+      <%= error_tag f, :github %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :color, "Color" %>
+      <%= text_input f, :color, class: "form-control" %>
+      <%= error_tag f, :color %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :color_primary, "Primary Color" %>
+    <%= text_input f, :color_primary, class: "form-control" %>
+    <%= error_tag f, :color_primary %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :color_secondary, "Secondary Color" %>
+    <%= text_input f, :color_secondary, class: "form-control" %>
+    <%= error_tag f, :color_secondary %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :color_accent, "Accent Color" %>
+    <%= text_input f, :color_accent, class: "form-control" %>
+    <%= error_tag f, :color_accent %>
+  </div>
+
+  <div class="form-group">
+      <%= label f, :tag, "Tag" %>
+      <%= text_input f, :tag, class: "form-control" %>
+      <%= error_tag f, :tag %>
+
+  <div class="form-group">
+    <%= label f, :organizers, class: "control-label" %>
+    <%= multiple_select(f, :organizers, @organizers_all |> Enum.map(&{"#{&1.name_first} #{&1.name_last}", &1.id}), selected: Enum.map(@event.organizers, &(&1.id)), class: "select2") %>
+    <%= error_tag f, :organizers %>
+  </div>
+
+  <%= submit "Update Event", class: "btn btn-primary pull-right" %>
+<% end %>

@@ -1,0 +1,5 @@
+<h2>New Technology</h2>
+
+<%= render "form.html", Map.put(assigns, :action, technology_path(@conn, :create)) %>
+
+<span><%= link "Back", to: technology_path(@conn, :index) %></span>

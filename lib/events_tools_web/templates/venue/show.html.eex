@@ -1,0 +1,13 @@
+<h2>Venue</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @venue.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: venue_path(@conn, :edit, @venue) %></span>
+<span><%= link "Back", to: venue_path(@conn, :index) %></span>

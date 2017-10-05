@@ -1,0 +1,6 @@
+<h2>New Hall  room  plan</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: hall__room__plan_path(@conn, :create) %>
+
+<span><%= link "Back", to: hall__room__plan_path(@conn, :index) %></span>

@@ -1,0 +1,31 @@
+<div class="card small profile">
+  <div class="inner-profile">
+
+    <div class="profile-details">
+      <div class="inner-profile-details">
+        <h3 class="title"><a href="/2017/profiles/<%= @profile.slug %>"><%= @profile.name_first %> <%= @profile.name_last %></a></h3>
+
+        <div class="prof-details">
+          <%= @profile.role %>
+          <%= if @profile.organization do %>(<%= @profile.organization %>)<%= end %>
+        </div>
+        <div class="icons">
+          <%= if @profile.website do %><div class="icon website"><a href="<%= @profile.website %>" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.github do %><div class="icon github"><a href="<%= @profile.github %>" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.linkedin do %><div class="icon linkedin"><a href="<%= @profile.linkedin %>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.twitter do %><div class="icon twitter"><a href="<%= @profile.twitter %>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div><%= end %>
+          <%= if @profile.facebook do %><div class="icon facebook"><a href="<%= @profile.facebook %>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div><%= end %>
+        </div>
+      </div>
+
+    </div>
+    <div class="profile-avatar">
+      <div class="inner-profile-avatar">
+          <a class="avatar" href="/profiles/<%= @profile.slug %>">
+            <div class="avatar" style="background-image: url(<%= static_path(@conn, "/images/profiles/") %><%= if @profile.avatar == nil do %>profile_default.svg<% else %><%= @profile.avatar.file_name %><%= end %>)"></div>
+          </a>
+      </div>
+    </div>
+
+  </div>
+</div>

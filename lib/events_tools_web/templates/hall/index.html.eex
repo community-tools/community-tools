@@ -1,0 +1,29 @@
+<h2>Exhibition Halls</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Building</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for hall <- @halls do %>
+    <tr>
+      <td><%= link hall.name, to: hall_path(@conn, :show, hall), class: "" %></td>
+      <td><%=  hall.building.name %></td>
+
+
+      <td class="text-right">
+        <div class="links crud icons row">
+          <div class="link crud icon"><%= link fa_icon("pencil"), to: hall_path(@conn, :edit, hall), class: "icon" %></div>
+          <div class="link crud icon"><%= link fa_icon("trash"), to: hall_path(@conn, :delete, hall), method: :delete, data: [confirm: "Are you sure?"], class: "icon" %></div>
+        </div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link fa_icon("plus"), to: hall_path(@conn, :new) %></span>

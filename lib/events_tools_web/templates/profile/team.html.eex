@@ -1,0 +1,29 @@
+<!-- Intro - Team -->
+<div class="landing-intro image-full team">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">Team</h2>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text about white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps is organized by a grassroots volunteer teaam from the open source community.</p>
+    <p>If you'd like to get involved, please reach out to us by email at <a href="mailto:info@opencamps.org">info@opencamps.org</a></p>
+  </div>
+</div>
+
+
+<!-- Listing - Team -->
+<div class="row-profiles row-team">
+  <div class="inner-profiles">
+    <%= for profile <- @profiles do %>
+      <%= render "card-small.html", profile: profile, conn: @conn %>
+    <% end %>
+  </div>
+</div>

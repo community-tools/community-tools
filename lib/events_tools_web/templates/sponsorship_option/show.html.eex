@@ -1,0 +1,73 @@
+<h2>Show Sponsorship</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @sponsorship_option.name %>
+  </li>
+
+  <li>
+    <strong>Summary:</strong>
+    <%= @sponsorship_option.summary %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @sponsorship_option.type %>
+  </li>
+
+  <li>
+    <strong>Expo:</strong>
+    <%= @sponsorship_option.expo %>
+  </li>
+
+  <li>
+    <strong>Camps:</strong>
+    <%= @sponsorship_option.camps %>
+  </li>
+
+  <li>
+    <strong>Website:</strong>
+    <%= @sponsorship_option.website %>
+  </li>
+
+  <li>
+    <strong>Program:</strong>
+    <%= @sponsorship_option.program %>
+  </li>
+
+  <li>
+    <strong>Signage:</strong>
+    <%= @sponsorship_option.signage %>
+  </li>
+
+  <li>
+    <strong>Social:</strong>
+    <%= @sponsorship_option.social %>
+  </li>
+
+  <li>
+    <strong>Swag:</strong>
+    <%= @sponsorship_option.swag %>
+  </li>
+
+  <li>
+    <strong>Recruiting:</strong>
+    <%= @sponsorship_option.recruiting %>
+  </li>
+
+  <li>
+    <strong>Price:</strong>
+    <%= @sponsorship_option.price %>
+  </li>
+
+  <li>
+    <strong>Stock:</strong>
+    <%= @sponsorship_option.stock %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: sponsorship_option_path(@conn, :edit, @sponsorship_option) %></span>
+<span><%= link "Back", to: sponsorship_option_path(@conn, :index) %></span>

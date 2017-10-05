@@ -1,0 +1,28 @@
+<h2>Listing Status</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Summary</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for status <- @status do %>
+    <tr>
+      <td><%= status.title %></td>
+      <td><%= status.summary %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: status_path(@conn, :show, status), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: status_path(@conn, :edit, status), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: status_path(@conn, :delete, status), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Status", to: status_path(@conn, :new) %></span>

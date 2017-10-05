@@ -1,0 +1,58 @@
+<h2>Show Organization</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @organization.name %>
+  </li>
+
+  <li>
+    <strong>Summary:</strong>
+    <%= @organization.summary %>
+  </li>
+
+  <li>
+    <strong>Type:</strong>
+    <%= @organization.type %>
+  </li>
+
+  <li>
+    <strong>Website:</strong>
+    <%= @organization.website %>
+  </li>
+
+  <li>
+    <strong>Twitter:</strong>
+    <%= @organization.twitter %>
+  </li>
+
+  <li>
+    <strong>Linkedin:</strong>
+    <%= @organization.linkedin %>
+  </li>
+
+  <li>
+    <strong>Github:</strong>
+    <%= @organization.github %>
+  </li>
+
+  <li>
+    <strong>Facebook:</strong>
+    <%= @organization.facebook %>
+  </li>
+
+  <li>
+    <strong>Email:</strong>
+    <%= @organization.email %>
+  </li>
+
+  <li>
+    <strong>Phone:</strong>
+    <%= @organization.phone %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: organization_path(@conn, :edit, @organization) %></span>
+<span><%= link "Back", to: organization_path(@conn, :index) %></span>

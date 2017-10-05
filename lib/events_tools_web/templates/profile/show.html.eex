@@ -1,0 +1,65 @@
+<div class="card profile full">
+  <div class="inner-profile">
+
+    <div class="profile-top">
+      <div class="profile-left">
+        <div class="inner-left">
+          <div class="avatar" style="background-image: url(<%= static_path(@conn, "/images/profiles/") %><%= if @profile.avatar == nil do %>profile_default.svg<% else %><%= @profile.avatar.file_name %><%= end %>)"></div>
+        </div>
+      </div>
+
+      <div class="profile-right">
+        <div class="inner-right">
+          <div class="name"><h3><%= @profile.name_first %> <%= @profile.name_last %></h3></div>
+          <%= if @profile.organization do %>
+          <div class="prof-details"><%= @profile.role %> (<%= @profile.organization %>)</div>
+          <% end %>
+          <%= if @profile.country do %>
+          <div class="location"><%= @profile.state %>, <%= @profile.country %></div>
+          <% end %>
+          <div class="icons">
+            <%= if @profile.website do %><div class="icon website"><a href="<%= @profile.website %>" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a></div><%= end %>
+            <%= if @profile.github do %><div class="icon github"><a href="<%= @profile.github %>" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></div><%= end %>
+            <%= if @profile.linkedin do %><div class="icon linkedin"><a href="<%= @profile.linkedin %>" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></div><%= end %>
+            <%= if @profile.twitter do %><div class="icon twitter"><a href="<%= @profile.twitter %>" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div><%= end %>
+            <%= if @profile.facebook do %><div class="icon facebook"><a href="<%= @profile.facebook %>" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div><%= end %>
+          </div>
+          <div class="bio"><%= @profile.bio %></div>
+        </div>
+      </div>
+
+      <div class="profile-bottom">
+
+        </div>
+     </div>
+
+    <%= if @conn.host =~ "local.opencamps.org" or @conn.host =~ "dev.opencamps.org" or @conn.host =~ "test.opencamps.org"  do %>
+    <%= if @profile.presentations do %>
+    <div class="label presentations">
+      Presentations:
+      <%= for presentation <- @profile.presentations do %>
+        <span class="label label-default"><%= presentation.title %></span>
+      <% end %>
+    </div>
+    <% end %>
+    <% end %>
+
+    proflile: <%= @profile.user_id %><br>
+
+    <%= if @conn.assigns[:current_user] do %>
+
+      current: <%= @current_user.id %>
+
+      <%= if @profile.user_id == @current_user.id do %>
+      <!--      <div class="button edit pos-right"><%= link "Edit", to: profile_path(@conn, :edit, @profile), class: "mdc-button mdc-button--raised mdc-button--compact mdc-button--compact grey lighten-3" %></div>  -->
+      <div class="links crud icons">
+        <div class="link crud icon"><%= link fa_icon("pencil"), to: profile_path(@conn, :edit, @profile), class: "icon" %></div>
+        <div class="link crud icon"><%= link fa_icon("trash"), to: profile_path(@conn, :delete, @profile), method: :delete, data: [confirm: "Are you sure?"], class: "icon" %></div>
+      </div>
+      <%= end %>
+
+   <%= end %>
+
+    </div>
+  </div>
+</div>

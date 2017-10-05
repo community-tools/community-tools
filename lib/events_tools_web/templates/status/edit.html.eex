@@ -1,0 +1,6 @@
+<h2>Edit Status</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: status_path(@conn, :update, @status) %>
+
+<span><%= link "Back", to: status_path(@conn, :index) %></span>

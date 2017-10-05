@@ -1,0 +1,23 @@
+<!-- Intro - Events -->
+<div class="landing-intro image-full events">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">Events</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text events white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps features a mix of events focused on today's most impacful open source technologies and communities.</p>
+  </div>
+</div>
+
+
+
+<%= for e <- @events do %>
+  <%= render "event-tile.html", event: e, conn: @conn %>
+<% end %>

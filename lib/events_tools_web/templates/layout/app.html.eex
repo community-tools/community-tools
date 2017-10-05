@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= if Guardian.Plug.current_token(@conn) do %>
+      <meta name="guardian_token" content="<%= Guardian.Plug.current_token(@conn) %>">
+    <% end %>
+
+    <%= if @conn.host =~ "opencamps.org" do %>
+      <title>Open Camps - Nov 2017 NYC</title>
+    <%= else %>
+      <title>OC</title>
+    <%= end %>
+    <!-- <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>"> -->
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css"> -->
+
+
+    <!-- mwc -->
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/layout.css") %>">
+
+
+    <%= if List.last(@conn.path_info) === "edit" || List.last(@conn.path_info) === "new" do %>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/bootstrap/bootstrap.min.css") %>">
+    <% end %>
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/jquery/select2/4.0.3/select2.min.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/bootstrap/select2-bootstrap.css") %>">
+    <link rel="stylesheet" type="text/css" href="https://select2.github.io/select2-bootstrap-theme/css/select2-bootstrap.css">
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/fonts/fonts-google.css?family=Roboto:300,400,500") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/fonts/fonts-google-icons.css?family=Material+Icons") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/font-awesome.min.css") %>">
+
+    <!-- custom -->
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_styles.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_nav.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_admin.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_landing.css") %>">
+
+
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_events.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_events-tiles.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_presentations.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_accounts.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_sponsors.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_posts.css") %>">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/ct_homepage.css") %>">
+
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/styles.css") %>">
+
+
+    <!-- Compiled and minified JavaScript -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500"> -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+
+  </head>
+
+  <body class="gray lightest path-<%= List.first(@conn.path_info) %> <%= List.last(@conn.path_info) %>"">
+    <div class="inner-body">
+     <%= if @conn.host =~ "opencamps.org" do %>
+      <div class="header">
+        <div class="header-inner">
+
+          <div class="tagline">
+    				<div class="inner">
+    					<p class="short">Nov 17-21 in Midtown NYC - 8,000+ Attendees & 40+ Events</p>
+  	  				<p class="long">Nov 17-21 in Midtown NYC - 8,000+ Attendees at 40+ Events - <a href="/2017/about">Learn More</a></p>
+  		  			<p class="longer">Nov 17-21 in Midtown NYC - 8,000+ Attendees, 400+ Presentations, 15+ Trainings across 40+ Open Source Events - <a href="/2017/about">Learn More</a></p>
+    				</div>
+  				</div>
+
+          <%= render CommunityToolsWeb.AccountsView, "signin-bar.html", conn: @conn %>
+
+          <%= if @conn.host =~ "local.opencamps.org" do %>
+          <div class="container-button-get-tickets">
+            <div class="button-get-tickets"><a href="/2017/tickets"><span class="tickets-short">Get Tickets</span><span class="tickets-long">Tickets</span><span class="tickets-longer">Get Tickets</span></a></div>
+          </div>
+          <%= end %>
+
+          <div class="icons">
+            <div class="icon twitter"><a class="" href="https://twitter.com/opencamps" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></div>
+            <div class="icon facebook"><a class="" href="https://facbook.com/opencamps" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></div>
+            <div class="icon github"><a class="" href="https://github.com/opencamps" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></div>
+
+          </div>
+
+          <%= if @conn.host =~ "opencamps.org" do %>
+          <div class="nav-toggle">
+            <a href="#" class="nav-toggle-icon"><i class="fa fa-bars" aria-hidden="true"></i></a>
+          </div>
+         <% end %>
+
+
+          <div class="logo">
+            <a class="home" href="/"><img alt="Open Camps" src="<%= static_path(@conn, "/images/logo.svg") %>"></a>
+          </div>
+
+         <%= if @conn.host =~ "opencamps.org" do %>
+            <ul class="nav nav-main">
+
+
+              <li class="nav-item parent"><a class="nav-link" href="/2017/about">About</a>
+                <ul class="sub-nav">
+                  <li class="sub-nav-item"><a class="sub-nav-link" href="/2017/team">Team</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item parent"><a class="nav-link" href="/2017/events">Events</a></li>
+
+              <li class="nav-item parent"><a class="nav-link" href="/2017/presentations">Presentations & CFP</a>
+                <ul class="sub-nav">
+                  <li class="sub-nav-item"><a class="sub-nav-link" href="/2017/cfp">CFP</a></li>
+                </ul>
+              </li>
+
+              <li class="nav-item parent"><a class="nav-link" href="/2017/sponsors">Sponsors</a>
+                <%= if @conn.host =~ "local.opencamps.org" or @conn.host =~ "dev.opencamps.org" do %>
+                <ul class="sub-nav">
+                  <li class="sub-nav-item"><a class="sub-nav-link" href="/2017/sponsorship_options">Sponsorship Options</a></li>
+                </ul>
+                <%= end %>
+              </li>
+              <%= if @conn.host =~ "local.opencamps.org" or @conn.host =~ "dev.opencamps.org" do %>
+              <li class="nav-item"><a class="nav-link" href="/2017/posts">News</span></a></li>
+              <%= end %>
+
+              <!-- <li class="nav-item"><a class="nav-link" href="/schedule">Schedule</a></li> -->
+
+              <!-- <li class="nav-item"><a class="nav-link" href="/profiles" target="_blank">Speakers</a></li> -->
+
+              <!-- <li class="nav-item"><a class="nav-link" href="/sponsors" target="_blank">Sponsors</a></li> -->
+              <!-- <li class="nav-item"><a class="nav-link" href="/location" target="_blank">Location</a></li> -->
+
+            </ul>
+           <% end %>
+          </div>
+
+        </div>
+      </div>
+      <% end %>
+
+      <!-- Broadcast Messages -->
+      <%= show_flash(@conn) %>
+
+
+
+
+    <div id="main" class="main">
+
+      <%= render @view_module, @view_template, assigns %>
+    </div>
+
+    <%= if @conn.host =~ "opencamps.org" do %>
+    <footer class="page-footer gray light white-text">
+      <div class="inner">
+        <div class="row">
+          <div class="newsletter">
+            <!-- Begin MailChimp Signup Form -->
+            <link href="//cdn-images.mailchimp.com/embedcode/classic-10_7.css" rel="stylesheet" type="text/css">
+            <div id="mc_embed_signup">
+              <form action="//opencamps.us13.list-manage.com/subscribe/post?u=7bf44cd258cd2befc514416dd&amp;id=e2f10b3957" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                  <div class="mc-field-group">
+                  	<label for="mce-EMAIL">Newsletter Sign-Up</label>
+                  	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+                  </div>
+                	<div id="mce-responses" class="clear">
+                		<div class="response" id="mce-error-response" style="display:none"></div>
+                		<div class="response" id="mce-success-response" style="display:none"></div>
+                	</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                  <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_7bf44cd258cd2befc514416dd_e2f10b3957" tabindex="-1" value=""></div>
+                  <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+                </div>
+              </form>
+            </div>
+            <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script><script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+            <!--End mc_embed_signup-->
+          </div>
+
+
+          <div class="tweets-footer">
+            <a class="twitter-timeline" href="https://twitter.com/opencamps">Tweets by opencamps</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </div>
+
+          <div class="nav-footer">
+            <h5><a class="" href="/2017">Open Camps 2017</a></h5>
+            <ul class="nav-footer">
+              <li class="nav-item parent"><a class="nav-link" href="/2017/about">About</a>
+                <ul>
+                  <li class="sub-nav-item"><a class="sub-nav-item" href="/2017/team">Team</a></li>
+                </ul>
+              </li>
+              <li class="nav-item"><a class="nav-link" href="/2017/events">Events</a></li>
+              <!--<li><a class="grey-text text-lighten-3" href="/schedule">Schedule</a></li> -->
+              <%= if @conn.host =~ "local.opencamps.org" do %>
+              <li class="nav-item parent"><a class="nav-link" href="/presentations">Presentations</a>
+                <ul>
+                  <li class="sub-nav-item"><a class="sub-nav-link" href="/2017/cfp">CFP</a></li>
+                  <li class="sub-nav-item"><a class="sub-nav-link" href="/2017/speakers">Speakers</a></li>
+                </ul>
+              </li>
+            <%= end %>
+              <li class="nav-item parent"><a class="nav-link" href="/2017/sponsors">Sponsors</a>
+                <%= if @conn.host =~ "local.opencamps.org" or @conn.host =~ "dev.opencamps.org" or @conn.host =~ "test.opencamps.org"  do %>
+                <ul>
+                  <li class="sub-nav-item"><a class="sub-nav-link" href="/2017/sponsorship_options">Sponsorsip Options</a></li>
+                </ul>
+                <%= end %>
+              </li>
+              <%= if @conn.host =~ "local.opencamps.org" or @conn.host =~ "dev.opencamps.org" or @conn.host =~ "test.opencamps.org"  do %>
+              <li class="nav-item"><a class="nav-link" href="/2017/location">Location</a></li>
+              <li class="nav-item"><a class="nav-link" href="/2017/news">News</a></li>
+              <%= end %>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="inner">
+          <p>© 2017 Creative Commons</p> |
+          <a class="grey-text text-lighten-1 right" href="http://madeinnyc.org/" target="_blank"">Made in NYC</a>
+        </div>
+      </div>
+    </footer>
+    <% end %>
+
+    <div class="footer-sponsors">
+      <div class="inner-footer-sponsors">
+        <div class="sponsor-label">Founding Sponsors</div>
+        <div class="sponsors">
+          <div class="sponsor c1"><a class="sponsor" href="https://developer.capitalone.com/" target="_blank"><img alt="Capital One" src="<%= static_path(@conn, "/images/logos/logo_capital-one.svg") %>"></a></div>
+          <div class="sponsor cncf"><a class="sponsor" href="https://www.cncf.io" target="_blank"><img alt="Cloud Native Computing Foundations" src="<%= static_path(@conn, "/images/logos/logo_cncf.svg") %>"></a></div>
+          <%= if @conn.host =~ "local.opencamps.org" do %><div class="sponsor ibm"><a class="sponsor" href="https://ibm.com/" target="_blank"><img alt="IBMe" src="<%= static_path(@conn, "/images/logos/logo_ibm.svg") %>"></a></div><%= end %>
+
+        </div>
+      </div>
+    </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.auth0.com/js/lock/10.20/lock.min.js"></script>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/jquery/jquery-3.1.1.slim.min.js") %>"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="/js/jquery/jquery.min.js"><\/script>')</script>
+    <script src="<%= static_path(@conn, "/js/jquery/select2/4.0.3/select2.min.js") %>"></script>
+    <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+    <script src="<%= static_path(@conn, "/js/bootstrap/bootstrap.min.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/bootstrap/ie10-viewport-bug-workaround.js") %>"></script>
+    <!--
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/js/select2.min.js"></script>
+     -->
+    <script>
+      $(document).ready(function () {
+
+          $.fn.select2.defaults.set("theme", "bootstrap");
+          $(".select2").select2({
+               width: null
+          })
+
+          $("#signin-bar-button").click(function(){
+              $("#signin-bar-options").slideToggle("slow");
+          });
+
+          $("div.nav-toggle").click(function(){
+              $("ul.nav-main").toggleClass("responsive-show");
+          });
+      });
+    </script>
+
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-77253807-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+
+      gtag('config', 'UA-77253807-1');
+    </script>
+
+  </body>
+</html>

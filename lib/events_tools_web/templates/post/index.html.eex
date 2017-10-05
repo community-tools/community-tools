@@ -1,0 +1,33 @@
+<!-- Intro - About -->
+<div class="landing-intro image-full news">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">News</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text news white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps provides a mission-driven arena for open source community members, contributors and leaders to collaborate.</p>
+    <p>Our events are open to all to ensure there's no barriers between the world’s best open source developers, technologies & organizations.</p>
+  </div>
+</div>
+
+
+
+
+<div class="landing-row posts smoke">
+  <div class="landing-row-inner">
+
+    <%= for post <- @posts do %>
+      <%= render "card-medium.html", post: post, conn: @conn %>
+    <% end %>
+
+  </div>
+</div>
+
+<span><%= link "New Post", to: post_path(@conn, :new) %></span>

@@ -1,0 +1,32 @@
+<div class="page admin">
+  <div class="content">
+
+    <h2>Admin Dashboard</h2>
+
+    <ul>
+      <li>Events<li>
+        <ul>
+          <li><%= link to: event_path(@conn, :admin), class: "Events" do %>Manage Events<% end %></li>
+          <li><%= link to: event_path(@conn, :create), class: "Events" do %>Add an Event<% end %></li>
+        </ul>
+
+      <li>Users<li>
+        <ul>
+          <li><%= link to: event_path(@conn, :list), class: "Presentations" do %>Manage Presentations<% end %></li>
+          <li><%= link to: event_path(@conn, :create), class: "Presentations" do %>Add a User<% end %></li>
+        </ul>
+
+      <li>Presentations<li>
+        <ul>
+        <li><%= link to: event_path(@conn, :list), class: "Presentations" do %>Manage Presentations<% end %></li>
+        <li><%= link to: event_path(@conn, :create), class: "Presentations" do %>Add a Presentations<% end %></li>
+      </ul>
+
+      <li>Schedule<li>
+        <ul>
+        <li><%= link to: event_path(@conn, :list), class: "Schedules" do %>Manage Schedule<% end %></li>
+        <li><%= link to: event_path(@conn, :create), class: "Schedules" do %>Add a Schedule Slot<% end %></li>
+      </ul>
+
+  </div>
+</div>

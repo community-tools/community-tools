@@ -1,0 +1,109 @@
+<div class="profile-form">
+
+<h2>Create Your Profile</h2>
+
+<p>Please create your profile</p>
+
+<%= form_for @changeset, profile_path(@conn, :create, @profile), [multipart: true], fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :name_first, class: "control-label" %>
+    <%= text_input f, :name_first, class: "form-control" %>
+    <%= error_tag f, :name_first %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :name_last, class: "control-label" %>
+    <%= text_input f, :name_last, class: "form-control" %>
+    <%= error_tag f, :name_last %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :bio, class: "control-label" %>
+    <%= textarea f, :bio, class: "form-control" %>
+    <%= error_tag f, :bio %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :avatar, class: "control-label" %>
+    <%= file_input f, :avatar, class: "form-control" %>
+    <%= error_tag f, :avatar %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :organization, class: "control-label" %>
+    <%= text_input f, :organization, class: "form-control" %>
+    <%= error_tag f, :organization %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :role, class: "control-label" %>
+    <%= text_input f, :role, class: "form-control" %>
+    <%= error_tag f, :role %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :country, class: "control-label" %>
+    <%= text_input f, :country, class: "form-control" %>
+    <%= error_tag f, :country %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :state, class: "control-label" %>
+    <%= text_input f, :state, class: "form-control" %>
+    <%= error_tag f, :state %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :facebook, class: "control-label" %>
+    <%= text_input f, :facebook, class: "form-control" %>
+    <%= error_tag f, :facebook %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :github, class: "control-label" %>
+    <%= text_input f, :github, class: "form-control" %>
+    <%= error_tag f, :github %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :linkedin, class: "control-label" %>
+    <%= text_input f, :linkedin, class: "form-control" %>
+    <%= error_tag f, :linkedin %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :twitter, class: "control-label" %>
+    <%= text_input f, :twitter, class: "form-control" %>
+    <%= error_tag f, :twitter %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :website, class: "control-label" %>
+    <%= text_input f, :website, class: "form-control" %>
+    <%= error_tag f, :website %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :status, class: "control-label" %>
+    <%= multiple_select(f, :status, @status_all |> Enum.map(&{&1.title, &1.id}), selected: Enum.map(@profile.status, &(&1.id)), class: "select2") %>
+    <%= error_tag f, :status %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :user_id, class: "control-label" %>
+    <%= text_input f, :user_id, class: "form-control" %>
+    <%= error_tag f, :user_id %>
+  </div>
+
+  <div class="form-group">
+    <%= submit "Create Your Profile", class: "btn btn-primary" %>
+  </div>
+<% end %>
+
+</div>

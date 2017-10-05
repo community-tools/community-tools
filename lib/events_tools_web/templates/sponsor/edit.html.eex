@@ -1,0 +1,6 @@
+<h2>Edit Sponsor</h2>
+
+<%= render "form.html", changeset: @changeset, sponsor: @sponsor, organizations_all: @organizations_all, sponsorship_options_all: @sponsorship_options_all,
+                        action: sponsor_path(@conn, :update, @sponsor) %>
+
+<span><%= link "Back", to: sponsor_path(@conn, :index) %></span>

@@ -1,0 +1,94 @@
+<div id="dashboard">
+  <div class="inner-dashboard">
+
+    <h2>Your Dashboard</h2>
+
+    <div class="row-dashboard intro">
+      <p>Your conference dashboard includes account details, profile, and presentations.</p>
+      <p>Once event registrations open, you can also view event tickets which you have.</p>
+      <p>Once detailed event schedules are available, you can also create a personalized event schedule.</p>
+    </div>
+    <%= if @conn.assigns[:current_user] do %>
+
+      <!-- Account -->
+      <div class="row-dashboard account">
+
+        <h4 class="title-dashboard">Account</h4>
+
+        <p>Currently signed in as <%= @current_user.email %></p>
+
+        <%= button "Sign Out", to: accounts_path(@conn, :signout), method: :post, class: "button" %>
+
+      </div>
+
+
+
+
+      <!-- Profile -->
+      <div class="row-dashboard profile">
+        <h4 class="title-dashboard">Profile</h4>
+
+        <%= if length(@profiles) < 1 do  %>
+          <p>Please create a profile if you want to propse a presentation where you will be presenting.</p>
+          <a href="/2017/profile" class="button">Create Your Profile</a>
+        <%= else %>
+          <p>Please manage your profile below.</p>
+          <%= for profile <- @profiles do %>
+            <%= render CommunityToolsWeb.ProfileView, "card-medium.html", profile: profile, current_user: @current_user, conn: @conn %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <div class="row-dashboard presentations">
+
+        <h4 class="title-dashboard">Presenations</h4>
+        <%= if length(@profiles) < 1 do  %>
+          <p>You should create a profile above if you want to propse a presentation where you will be presenting.</p>
+        <%= end %>
+
+        <%= if length(@presentations) < 1 do  %>
+          <p>You haven't proposed a presentation yet.</p>
+          <p><a href="/2017/cfp" class="button">Propose a Presentation</a></p>
+        <%= else %>
+          <p>Below are the presentations that you've proposed, and their current selectstatus.</p>
+          <%= for presentation <- @presentations do %>
+            <%= Phoenix.View.render(CommunityToolsWeb.PresentationView, "card-small.html", presentation: presentation, conn: @conn ) %>
+          <% end %>
+          <p><a href="/2017/cfp" class="button">Propose Another Presentation</a></p>
+        <% end %>
+
+
+      </div>
+
+
+
+      <!-- Tickets -->
+      <div class="row-dashboard tickets">
+
+        <h4 class="title-dashboard">Tickets</h4>
+
+        <p>Once event registrations open, you can also view event tickets which you have.</p>
+
+      </div>
+
+
+
+      <!-- Schedule -->
+      <div class="row-dashboard schedule">
+
+        <h4 class="title-dashboard">Personal Schedule</h4>
+
+        <p>Once detailed event schedules are available, you can also create a personalized event schedule.</p>
+
+      </div>
+
+
+
+    <% else %>
+
+      <div id="signin-bar-button"><a href="/sign-in">Sign In</a></div>
+
+    <% end %>
+
+  </div>
+</div>

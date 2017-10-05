@@ -1,0 +1,76 @@
+<h2>Sponsorship Options</h2>
+
+
+<%= for sponsorship_option <- @sponsorship_options do %>
+<div class="sponsorship-option">
+  <div class="sponsorship-option-inner">
+
+    <div class="heading">
+      <h4><%= sponsorship_option.name %></h4>
+      <p><%= sponsorship_option.summary %>
+     <div class="price">$<%= sponsorship_option.price %></div>
+    </div>
+
+    <div class="benefit type">
+      <div class="label">Type</div>
+      <div class="details"><%= sponsorship_option.type %></div>
+    </div>
+
+    <div class="benefit expo">
+      <div class="label">Expo</div>
+      <div class="details"><%= sponsorship_option.expo %></div>
+    </div>
+
+    <div class="benefit camps">
+      <div class="label">Camps</div>
+      <div class="details"><%= sponsorship_option.camps %></div>
+    </div>
+
+    <div class="benefit website">
+      <div class="label">Website</div>
+      <div class="details"><%= sponsorship_option.website %></div>
+    </div>
+
+    <div class="benefit program">
+      <div class="label">Program</div>
+      <div class="details"><%= sponsorship_option.program %></div>
+    </div>
+
+    <div class="benefit signage">
+      <div class="label">Signage</div>
+      <div class="details"><%= sponsorship_option.signage %></div>
+    </div>
+
+    <div class="benefit social">
+      <div class="label">Social</div>
+      <div class="details"><%= sponsorship_option.social %></div>
+    </div>
+
+    <div class="benefit swag">
+      <div class="label">Swag</div>
+      <div class="details"><%= sponsorship_option.swag %></div>
+    </div>
+
+    <div class="benefit recruiting">
+      <div class="label">Recruiting</div>
+      <div class="details"><%= sponsorship_option.recruiting %></div>
+    </div>
+
+
+
+    <div class="benefit stock">
+      <div class="label">Stock</div>
+      <div class="details"><%= sponsorship_option.stock %></div>
+    </div>
+
+    <div class="text-right">
+      <span><%= link "Show", to: sponsorship_option_path(@conn, :show, sponsorship_option), class: "" %></span>
+      <span><%= link "Edit", to: sponsorship_option_path(@conn, :edit, sponsorship_option), class: "" %></span>
+      <span><%= link "Delete", to: sponsorship_option_path(@conn, :delete, sponsorship_option), method: :delete, data: [confirm: "Are you sure?"], class: "" %></span>
+    </div>
+
+  </div>
+  </div>
+<% end %>
+
+<span><%= link "New Sponsorship Option", to: sponsorship_option_path(@conn, :new) %></span>

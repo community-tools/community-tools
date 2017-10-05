@@ -1,0 +1,6 @@
+<h2>New Sponsorship Option</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: sponsorship_option_path(@conn, :create) %>
+
+<span><%= link "Back", to: sponsorship_option_path(@conn, :index) %></span>

@@ -1,0 +1,33 @@
+<!-- Intro - Presentations -->
+<div class="landing-intro image-full presentations">
+  <div class="landing-intro-inner-image">
+    <div class="color">
+      <div class="text">
+        <div class="text-inner">
+          <h2 class="landing-intro-header">Presentations</h2>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="landing-intro text about white">
+  <div class="landing-intro-inner-text">
+    <p>Open Camps features presentations on today's most impactful open source technologies and communities. Speakers at Open Camps features include a dynamic mix of grassroots developers, open source contributors, and community leaders.</p>
+    <p>Our Call for Presentations (CFP) is open until Oct 15, 2017. Below are some of our currently selected presentations. A detailed schedule of presentations should be available by Oct 18.</p>
+    <p><a href="/2017/cfp" class="button-cfp">Propose a Presentation</a></p>
+  </div>
+</div>
+
+
+<%= if @conn.host =~ "local.opencamps.org" do %>
+
+<div class="landing-row row-presentations smoke">
+  <div class="inner-presentations">
+    <%= for presentation <- @presentations do %>
+      <%= render "card-medium.html", presentation: presentation, conn: @conn %>
+    <% end %>
+  </div>
+</div>
+
+<% end %>

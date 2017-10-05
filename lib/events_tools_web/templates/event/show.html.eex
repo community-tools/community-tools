@@ -1,0 +1,2 @@
+
+  <%= render "event-full.html", event: @event, conn: @conn %>

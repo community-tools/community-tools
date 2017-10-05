@@ -1,0 +1,21 @@
+<h2>Building</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @building.name %>
+  </li>
+
+  <li>
+    <strong>Venue:</strong>
+    <%= @building.venue.name%>
+
+
+  </li>
+
+
+</ul>
+
+<span><%= link "Edit", to: building_path(@conn, :edit, @building) %></span>
+<span><%= link "Back", to: building_path(@conn, :index) %></span>

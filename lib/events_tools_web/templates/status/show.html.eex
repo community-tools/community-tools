@@ -1,0 +1,18 @@
+<h2>Show Status</h2>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @status.title %>
+  </li>
+
+  <li>
+    <strong>Summary:</strong>
+    <%= @status.summary %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: status_path(@conn, :edit, @status) %></span>
+<span><%= link "Back", to: status_path(@conn, :index) %></span>

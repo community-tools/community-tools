@@ -1,0 +1,13 @@
+<h2>Hall Room Plan</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @hall__room__plan.name %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: hall__room__plan_path(@conn, :edit, @hall__room__plan) %></span>
+<span><%= link "Back", to: hall__room__plan_path(@conn, :index) %></span>

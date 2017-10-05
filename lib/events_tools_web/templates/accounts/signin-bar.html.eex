@@ -1,0 +1,15 @@
+<div id="signin-bar-container">
+
+<%= if @conn.assigns[:current_user] do %>
+  <div id="signin-bar-button">
+    <a href="/2017/dashboard" class="short">Dashboard</a>
+    <a href="/2017/dashboard" class="long">My Dashboard</a>
+  </div>
+
+<% else %>
+
+  <div id="signin-bar-button"><a href="/sign-in">Sign In</a></div>
+
+<% end %>
+
+</div>

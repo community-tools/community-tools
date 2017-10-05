@@ -1,0 +1,11 @@
+<h2 class="title-page">Profiles</h2>
+
+<div class="row-profiles">
+  <div class="inner-profiles">
+    <%= for profile <- @profiles do %>
+      <%= render "card-small.html", profile: profile, conn: @conn %>
+    <% end %>
+  </div>
+</div>
+
+<span><%= link "New Profile", to: profile_path(@conn, :new) %></span>

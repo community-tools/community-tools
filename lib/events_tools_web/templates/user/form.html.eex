@@ -1,0 +1,37 @@
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p>Oops, something went wrong! Please check the errors below.</p>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= label f, :email, class: "control-label" %>
+    <%= text_input f, :email, class: "form-control" %>
+    <%= error_tag f, :email %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :password, class: "control-label" %>
+    <%= text_input f, :password, class: "form-control" %>
+    <%= error_tag f, :password %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :roles, class: "control-label" %>
+    <%= multiple_select(f, :roles, @roles_all |> Enum.map(&{&1.name, &1.id}), selected: Enum.map(@user.roles, &(&1.id)), class: "select2") %>
+    <%= error_tag f, :roles %>
+  </div>
+
+  <div class="form-group">
+    <%= label f, :status, class: "control-label" %>
+    <%= multiple_select(f, :status, @status_all |> Enum.map(&{&1.title, &1.id}), selected: Enum.map(@user.status, &(&1.id)), class: "select2") %>
+    <%= error_tag f, :status %>
+  </div>
+
+
+
+  <div class="form-group">
+    <%= submit "Submit", class: "btn btn-primary" %>
+  </div>
+<% end %>

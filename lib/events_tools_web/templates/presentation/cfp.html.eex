@@ -1,0 +1,167 @@
+<div class="cfp">
+
+  <!-- Intro - About -->
+  <div class="landing-intro image-full cfp">
+    <div class="landing-intro-inner-image">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <h2 class="landing-intro-header">Call for Presentations</h2>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="landing-intro text about white">
+    <div class="landing-intro-inner-text">
+      <p>Our Call for Presentations (CFP) is open until Oct 23, 2017.</p>
+      <p>We'll be accepting presentation on a rolling basis, and a detailed schedule of presentations should be available by Oct 27. </p>
+      <p>Below is some guidance and themes of our CFP. We do not offer a '<em>pay-to-present</em> model and endeavour to ensure an even playing field for all. If you have any questions please contact us by email at <a href="mailto:info@opencamps.org">info@opencamps.org</a></p>
+    </div>
+  </div>
+
+
+  <!-- Form -->
+  <div class="landing-row cfp-themes smoke">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+           <h3 class="landing-row cfp themes">Themes</h3>
+           <p>Open Camps presentations broadly cover open source innovation, including both their creation, adoption and use.</p>
+
+            <ul class="cfp themes">
+              <li><strong>Enterprise Open Source:</strong> Open Camps is focused on supporting the adoption and growth of open source technologies in enterprise organizations.</li>
+              <li><strong>Advanced Content & Use Cases:</strong> Open Camps includes content for all experience levels, but we are also focused on helping attendees advance their skill levels and push the boundaries of what it's possible to achive with open source technologies.</li>
+              <li><strong>New Open Source Projects:</strong> Open Camps aims to provide an arena for launching new open source technologies.</li>
+              <li><strong>Open Source Contribution:</strong> Open Camps is focused on fostering community and contribution to open source technologies, as wel as contribution to open source technologies.</li>
+              <li><strong>Social Impact Initiatives:</strong> Open Camps is a mission-driven conference which runs several social impact initiatives. Thes include our Next Gen Camp for youth, Women in Open Source Camp, Diversity & Inclusion Camp, and our Hack for Humanity hackaton.</li>
+            <ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Form -->
+  <div class="landing-row cfp-form gray">
+    <div class="landing-row-inner">
+      <div class="color">
+        <div class="text">
+          <div class="text-inner">
+            <div class="form">
+              <h4>Propose Your Presentation</h4>
+
+              <%= if @conn.assigns[:current_user] do %>
+
+                <%= form_for @changeset, presentation_path(@conn, :create, @presentation), [multipart: true], fn f -> %>
+                  <%= if @changeset.action do %>
+                    <div class="alert alert-danger">
+                      <p>Please check the errors and required fields below.</p>
+                    </div>
+                  <% end %>
+
+                  <div class="form-group">
+                    <%= label f, :title, class: "control-label" %>
+                    <%= text_input f, :title, class: "form-control" %>
+                    <div class="form-tips">
+                      <p class="form-tip">Please enter the title for your presentation</p>
+                      <p class="form-error"><%= error_tag f, :title %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= label f, :summary, class: "control-label" %>
+                    <%= textarea f, :summary, class: "form-control" %>
+                    <div class="form-tips">
+                      <p class="form-tip">Please enter the summary of your presentation</p>
+                      <p class="form-error"><%= error_tag f, :summary %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= label f, :presenters, class: "control-label" %>
+                    <%= multiple_select(f, :presenters, @profiles_all |> Enum.map(&{"#{&1.name_first} #{&1.name_last}", &1.id}), selected: Enum.map(@presentation.presenters, &(&1.id)), class: "select2 form-control") %>
+                    <div class="form-tips">
+                      <p class="form-tip">Please select the presenters for your presentation (yourself and others).</p>
+                      <p class="form-tip">If you haven't created your profile yet, please <a href="/2017/dashboard">do so on your dashboard</a>.</p>
+                      <p class="form-error"><%= error_tag f, :presenters %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= label f, :events, class: "control-label" %>
+                    <%= multiple_select(f, :events, @events_all |> Enum.map(&{&1.name, &1.id}), selected: Enum.map(@presentation.events, &(&1.id)), class: "select2") %>
+                    <div class="form-tips">
+                      <p class="form-tip">Please select the event(s) where you would like to present your presentation.</p>
+                      <p class="form-error"><%= error_tag f, :events %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= label f, :slides_file, class: "control-label" %>
+                    <%= file_input f, :slides_file, class: "form-control" %>
+                    <div class="form-tips">
+                      <p class="form-tip">Please upload your slides if they are available.</p>
+                      <p class="form-error"><%= error_tag f, :slides_file %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= label f, :slides_link, class: "control-label" %>
+                    <%= text_input f, :slides_link, class: "form-control" %>
+                    <div class="form-tips">
+                      <p class="form-tip">If you're slide are online, please enter a link to their location.</p>
+                      <p class="form-error"><%= error_tag f, :slides_link %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= label f, :slides_embed, class: "control-label" %>
+                    <%= textarea f, :slides_embed, class: "form-control" %>
+                    <div class="form-tips">
+                      <p class="form-tip">Please add any embed location for your slides, such as SlideShare.</p>
+                      <p class="form-error"><%= error_tag f, :slides_embed %></p>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= submit "Submit Your Presentation", class: "btn btn-primary" %>
+                  </div>
+
+                <% end %>
+              <%= else %>
+
+              <p>You must be logged in to propose a presentation.</p>
+              <p>Please sign-in below</p>
+
+               <div id="root" style="width: 320px; margin: 40px auto; padding: 10px;  box-sizing: border-box;">
+               </div>
+               <script src="https://cdn.auth0.com/js/lock/10.20/lock.min.js"></script>
+               <script>
+                 var lock = new Auth0Lock('gapqCQpVjRdjZV22dbApwvYtucuLg2HX', 'opencamps.auth0.com', {
+                   container: 'root',
+                   auth: {
+                     redirectUrl: 'http://<%= @conn.host %>/sign-in/auth0/callback',
+                     responseType: 'code',
+                     params: {
+                       scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+                     }
+                   }
+                 });
+                 lock.show();
+               </script>
+
+              <%= end %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

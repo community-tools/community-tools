@@ -1,0 +1,29 @@
+<h2 class="title-page-admin">Manage Organizations</h2>
+
+<table data-toggle="table" class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for organization <- @organizations do %>
+    <tr>
+      <td>
+        <div class="logo"><img src="<%= static_path(@conn, "/images/logos/") %><%= organization.logo %>"></div>
+        <div class="name"<%= link organization.name, to: organization_path(@conn, :show, organization), class: "" %></div>
+     </td>
+      <td><%= organization.type %></td>
+
+      <td class="icons">
+        <div class="link crud icon"><%= link fa_icon("pencil"), to: organization_path(@conn, :edit, organization), class: "icon" %></div>
+        <div class="link crud icon"><%= link fa_icon("trash"), to: organization_path(@conn, :delete, organization), method: :delete, data: [confirm: "Are you sure?"], class: "icon" %></div>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link fa_icon("plus"), to: organization_path(@conn, :new) %></span>

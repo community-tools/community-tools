@@ -1,0 +1,10 @@
+<div class="col-md-12 container">
+  <div class="admin edit-block">
+
+    <h3>Edit Event</h3>
+
+    <%= render "form.html", changeset: @changeset, event: @event, organizers_all: @organizers_all,
+                        action: event_path(@conn, :update, @event) %>
+
+  </div>
+</div>

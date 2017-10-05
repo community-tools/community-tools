@@ -1,0 +1,31 @@
+<div class="signin-container">
+
+<%= if @conn.assigns[:current_user] do %>
+  <a href="/sign-out">Sign Out</a>
+<% else %>
+  <h2 class="signin">Sign In</h2>
+
+  <div class="signin-options">
+
+   <p>Please sign-in below</p>
+
+    <div id="root" style="width: 320px; margin: 40px auto; padding: 10px;  box-sizing: border-box;">
+    </div>
+    <script src="https://cdn.auth0.com/js/lock/10.20/lock.min.js"></script>
+    <script>
+      var lock = new Auth0Lock('gapqCQpVjRdjZV22dbApwvYtucuLg2HX', 'opencamps.auth0.com', {
+        container: 'root',
+        auth: {
+          redirectUrl: 'http://<%= @conn.host %>/sign-in/auth0/callback',
+          responseType: 'code',
+          params: {
+            scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+          }
+        }
+      });
+      lock.show();
+    </script>
+
+
+<% end %>
+</div>

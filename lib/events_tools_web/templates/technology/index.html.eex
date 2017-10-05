@@ -1,0 +1,30 @@
+<h2>Listing Technologies</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Logo</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for technology <- @technologies do %>
+    <tr>
+      <td><%= technology.name %></td>
+      <td><%= technology.description %></td>
+      <td><%= technology.logo %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: technology_path(@conn, :show, technology), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: technology_path(@conn, :edit, technology), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: technology_path(@conn, :delete, technology), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Technology", to: technology_path(@conn, :new) %></span>

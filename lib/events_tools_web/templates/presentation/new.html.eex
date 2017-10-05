@@ -1,0 +1,8 @@
+<div class="container">
+<h2>New Presentation</h2>
+
+<%= render "form.html", changeset: @changeset, presentation: @presentation, profiles_all: @profiles_all, events_all: @events_all, current_user: @current_user,
+                        action: presentation_path(@conn, :create) %>
+
+<span><%= link "Back", to: presentation_path(@conn, :index) %></span>
+</div>

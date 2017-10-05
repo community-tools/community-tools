@@ -1,0 +1,11 @@
+<div class="card full post">
+  <div class="inner-post">
+    <h2 class="title"><%= @post.title %></h2>
+    <h3 class="title"><%= @post.subtitle %></h3>
+    <div class="date"><%= @post.date %></div>
+    <div class="body"><%= @post.body %></div>
+
+    <div class="button edit pos-right"><%= link "Edit", to: post_path(@conn, :edit, @post), class: "mdc-button mdc-button--raised mdc-button--compact mdc-button--compact grey lighten-3" %></div>
+
+  </div>
+</div>
